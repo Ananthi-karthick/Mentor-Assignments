@@ -1,0 +1,29 @@
+package hashMap;
+
+import java.util.*;
+
+public class HashMapImlementation {
+
+	public static void main(String[] args) {
+
+		Map<String, List<String>> mentorGroup = new HashMap<String, List<String>>();
+
+		List<String> members = new ArrayList<String>();
+
+		members.add("Ananthi - Peravurani");
+		members.add("James - Thenkasi");
+		members.add("Junaitha - Thenkasi");
+		members.add("Nagarjuna - Chennai");
+		members.add("Saravana - Chennai");
+
+		mentorGroup.put("Prakash Dhanabal", members);
+
+		for (Map.Entry<String, List<String>> entry : mentorGroup.entrySet()) {
+			String key = entry.getKey();
+			List<String> values = entry.getValue();
+			System.out.println("Mentor Name:" + key);
+
+			System.out.println("Members Name:" + values);
+		}
+	}
+}
