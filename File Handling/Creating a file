@@ -76,3 +76,10 @@ public class CreateFile {
 		printPath();
 	}
 }
+//output
+/*File already exists...
+Number of Lines:2
+Number of Characters:112
+
+[Path] : Ananthi\ReadMyJavaFile.txt */
+
