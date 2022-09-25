@@ -1,0 +1,78 @@
+package com.ananthi.io.file;
+
+import java.io.*;
+import java.util.Scanner;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class CreateFile {
+	private static void createANewFile() {
+		try {
+			File folder = new File("Ananthi");
+			File fileName = new File("Ananthi/ReadMyJavaFile.txt");
+			folder.mkdir();
+
+			if (fileName.createNewFile()) {
+				System.out.println("Folder and File created: " + fileName.getName());
+			} else {
+				System.out.println("File already exists...");
+			}
+
+		} catch (IOException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+
+	}
+
+	private static void writeIntoAFile() throws FileNotFoundException {
+		File file = new File("Ananthi/ReadMyJavaFile.txt");
+		PrintWriter pw = new PrintWriter(file);
+
+		pw.println("This is the Sample code for writing into a created file \"ReadMyJavaFile\""
+				+ "\n \"to finding no.of lines and no.of characters in the file....");
+
+		pw.close();
+
+	}
+
+	private static void characteristicsOfFile() throws FileNotFoundException {
+		int numOfLines = 0;
+		int numOfCharacters = 0;
+		boolean foundChar = false;
+		Scanner myFile = null;
+		Scanner file1 = new Scanner(new File("Ananthi/ReadMyJavaFile.txt"));
+		myFile = file1;
+
+		while (myFile.hasNextLine()) {
+			String currentLine = myFile.nextLine();
+			int size = currentLine.length();
+			for (int i = 0; i < size; i++) {
+				if (currentLine.charAt(i) == ' ')
+					foundChar = false;
+				else {
+					foundChar = true;
+					numOfCharacters++;
+				}
+			}
+			numOfLines++;
+		}
+		System.out.println("Number of Lines:" + numOfLines);
+		System.out.println("Number of Characters:" + numOfCharacters);
+
+	}
+
+	private static void printPath() {
+		
+		Path path1 = Paths.get("Ananthi/ReadMyJavaFile.txt");
+		System.out.println("\n[Path] : " + path1);
+
+	}
+
+	public static void main(String[] args) throws IOException {
+		createANewFile();
+		writeIntoAFile();
+		characteristicsOfFile();
+		printPath();
+	}
+}
